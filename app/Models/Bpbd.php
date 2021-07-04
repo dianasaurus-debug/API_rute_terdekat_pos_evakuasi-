@@ -11,7 +11,8 @@ class Bpbd extends Model
 
     use HasFactory;
 
-    public function validations() {
+    public function validations() 
+    {
         return $this->hasMany(Validation::class, 'bpbd_id', 'id');
     }
 }

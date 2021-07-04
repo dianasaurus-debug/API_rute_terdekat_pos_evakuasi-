@@ -10,4 +10,9 @@ class PosEvakuasi extends Model
     protected $table = 'pos_evakuasi';
 
     use HasFactory;
+
+    public function desa()
+    {
+        return $this->belongsTo(Desa::class);
+    }
 }

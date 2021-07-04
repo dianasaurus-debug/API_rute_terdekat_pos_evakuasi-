@@ -10,4 +10,14 @@ class Bencana extends Model
     protected $table = 'bencana';
 
     use HasFactory;
+
+    public function sopBpbd()
+    {
+        return $this->hasOne(SopBpbd::class);
+    }
+
+    public function riwayatBencana()
+    {
+        return $this->hasMany(RiwayatBencana::class);
+    }
 }

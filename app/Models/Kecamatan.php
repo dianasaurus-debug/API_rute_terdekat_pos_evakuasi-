@@ -10,4 +10,14 @@ class Kecamatan extends Model
     protected $table = 'kecamatan';
 
     use HasFactory;
+
+    public function desa()
+    {
+        return $this->hasMany(Desa::class);
+    }
+
+    public function posEvakuasi()
+    {
+        return $this->hasManyThrough(PosEvakuasi::class, Desa::class);
+    }
 }

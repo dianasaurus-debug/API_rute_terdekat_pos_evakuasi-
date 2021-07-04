@@ -10,4 +10,9 @@ class SopBpbd extends Model
     protected $table = 'sop_bpbd';
 
     use HasFactory;
+
+    public function bencana()
+    {
+        return $this->belongsTo(Bencana::class);
+    }
 }

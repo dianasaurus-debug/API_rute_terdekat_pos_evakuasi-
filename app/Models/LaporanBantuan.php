@@ -11,7 +11,13 @@ class LaporanBantuan extends Model
 
     use HasFactory;
 
-    public function validation() {
+    public function validation() 
+    {
         return $this->morphOne(Validation::class, 'validationable');
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
     }
 }

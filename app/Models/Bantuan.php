@@ -10,4 +10,9 @@ class Bantuan extends Model
     protected $table = 'bantuan';
 
     use HasFactory;
+
+    public function laporanBantuan()
+    {
+        return $this->hasMany(LaporanBantuan::class);
+    }
 }
