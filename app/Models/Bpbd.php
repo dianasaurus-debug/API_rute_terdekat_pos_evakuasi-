@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bpbd extends Model
 {
+    use HasFactory;
+    
     protected $table = 'bpbd';
 
-    use HasFactory;
+    protected $fillable = [
+        'nip',
+        'username',
+        'email',
+        'password'
+    ];
 
     public function validations() 
     {

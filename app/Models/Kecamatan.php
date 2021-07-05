@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kecamatan extends Model
 {
+    use HasFactory;
+
     protected $table = 'kecamatan';
 
-    use HasFactory;
+    protected $fillable = [
+        'name',
+        'longitude',
+        'latitude'
+    ];
 
     public function desa()
     {

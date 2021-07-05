@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class RiwayatBencana extends Model
 {
+    use HasFactory;
+
     protected $table = 'riwayat_bencana';
 
-    use HasFactory;
+    protected $fillable = [
+        'bencana_id',
+        'desa_id',
+        'date',
+        'latitude',
+        'longitude'
+    ];
 
     public function bencana()
     {

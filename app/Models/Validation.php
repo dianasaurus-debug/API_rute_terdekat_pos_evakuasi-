@@ -9,6 +9,12 @@ class Validation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'bpbd_id',
+        'target_id',
+        'target_type'
+    ];
+
     public function validationable() {
         return $this->morphTo();
     }

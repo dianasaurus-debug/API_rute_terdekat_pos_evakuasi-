@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bantuan extends Model
 {
+    use HasFactory;
+
     protected $table = 'bantuan';
 
-    use HasFactory;
+    protected $fillable = ['type', 'status'];
 
     public function laporanBantuan()
     {

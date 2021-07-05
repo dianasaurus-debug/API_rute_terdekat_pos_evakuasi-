@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bencana extends Model
 {
+    use HasFactory;
+
     protected $table = 'bencana';
 
-    use HasFactory;
+    protected $fillable = ['name'];
 
     public function sopBpbd()
     {

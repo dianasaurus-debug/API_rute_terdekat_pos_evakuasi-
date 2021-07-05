@@ -8,9 +8,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Desa extends Model
 {
+    use HasFactory;
+
     protected $table = 'desa';
 
-    use HasFactory;
+    protected $fillable = [
+        'kecamatan_id',
+        'name',
+        'longitude',
+        'latitude'
+    ];
 
     public function kecamatan()
     {

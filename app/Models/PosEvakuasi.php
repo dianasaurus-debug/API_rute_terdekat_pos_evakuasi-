@@ -7,9 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PosEvakuasi extends Model
 {
+    use HasFactory;
+
     protected $table = 'pos_evakuasi';
 
-    use HasFactory;
+    protected $fillable = [
+        'desa_id',
+        'name',
+        'address',
+        'latitude',
+        'longitude'
+    ];
 
     public function desa()
     {

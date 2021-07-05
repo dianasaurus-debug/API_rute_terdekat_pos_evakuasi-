@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class LaporanBantuan extends Model
 {
+    use HasFactory;
+
     protected $table = 'laporan_bantuan';
 
-    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'bantuan_id',
+        'date',
+        'description'
+    ];
 
     public function validation() 
     {
