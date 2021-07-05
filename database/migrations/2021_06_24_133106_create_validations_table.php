@@ -15,8 +15,7 @@ class CreateValidationsTable extends Migration
     {
         Schema::create('validations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bpbd_id');
-            $table->foreign('bpbd_id')->references('id')->on('bpbd')->onDelete('cascade');
+            $table->foreignId('bpbd_id')->constrained('bpbd')->onDelete('cascade');
             $table->unsignedInteger('target_id');
             $table->string('target_type');
             $table->timestamps();

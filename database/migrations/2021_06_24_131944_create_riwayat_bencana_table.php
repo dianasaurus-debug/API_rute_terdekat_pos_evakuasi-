@@ -15,10 +15,8 @@ class CreateRiwayatBencanaTable extends Migration
     {
         Schema::create('riwayat_bencana', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bencana_id');
-            $table->foreign('bencana_id')->references('id')->on('bencana')->onDelete('cascade');
-            $table->unsignedBigInteger('desa_id');
-            $table->foreign('desa_id')->references('id')->on('desa')->onDelete('cascade');
+            $table->foreignId('bencana_id')->constrained('bencana')->onDelete('cascade');
+            $table->foreignId('desa_id')->constrained('desa')->onDelete('cascade');
             $table->date('date');
             $table->bigInteger('latitude');
             $table->bigInteger('longitude');

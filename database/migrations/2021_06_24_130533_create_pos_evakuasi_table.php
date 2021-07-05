@@ -15,8 +15,7 @@ class CreatePosEvakuasiTable extends Migration
     {
         Schema::create('pos_evakuasi', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('desa_id');
-            $table->foreign('desa_id')->references('id')->on('desa')->onDelete('cascade');
+            $table->foreignId('desa_id')->constrained('desa')->onDelete('cascade');
             $table->string('name');
             $table->string('address');
             $table->bigInteger('latitude');

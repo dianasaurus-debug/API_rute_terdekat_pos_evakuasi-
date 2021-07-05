@@ -15,8 +15,7 @@ class CreateDesaTable extends Migration
     {
         Schema::create('desa', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kecamatan_id');
-            $table->foreign('kecamatan_id')->references('id')->on('kecamatan')->onDelete('cascade');
+            $table->foreignId('kecamatan_id')->constrained('kecamatan')->onDelete('cascade');
             $table->string('name');
             $table->bigInteger('longitude');
             $table->bigInteger('latitude');
