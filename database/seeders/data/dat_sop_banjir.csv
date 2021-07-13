@@ -1,0 +1,47 @@
+id;bencana_id;name;tindakan
+1;1;Prabencana;1. Mengetahui istilah-istilah peringatan yang berhubungan dengan bahaya banjir, seperti Siaga I sampai dengan Siaga IV dan langkah-langkah apa yang harus dilakukan.
+2;1;Prabencana;2. Mengetahui tingkat kerentanan tempat tinggal kita, apakah berada di zona rawan banjir.
+3;1;Prabencana;3. Mengetahui cara-cara untuk melindungi rumah kita dari banjir.
+4;1;Prabencana;4. Mengetahui saluran dan jalur yang sering dilalui air banjir dan apa dampaknya untuk rumah kita.
+5;1;Prabencana;5. Melakukan persiapan untuk evakuasi, termasuk memahami rute evakuasi dan daerah yang lebih tinggi.
+6;1;Prabencana;6. Membicarakan dengan anggota keluarga mengenai ancaman banjir dan merencanakan tempat pertemuan apabila anggota keluarga terpencar-pencar.
+7;1;Prabencana;7. Mengetahui bantuan apa yang bisa diberikan apabila ada anggota keluarga yang terkena banjir.
+8;1;Prabencana;8. Mengetahui kebutuhan-kebutuhan khusus anggota keluarga dan tetangga apabila banjir terjadi.
+9;1;Prabencana;9. Membuat persiapan untuk hidup mandiri selama sekurangnya tiga hari, misalnya persiapan tas siaga bencana, penyediaan makanan dan air minum.
+10;1;Prabencana;10. Mengetahui kebutuhan-kebutuhan khusus anggota keluarga dan tetangga apabila banjir terjadi.
+11;1;Prabencana;11. Membuat persiapan untuk hidup mandiri selama sekurangnya tiga hari, misalnya persiapan tas siaga bencana, penyediaan makanan dan air minum.
+12;1;Prabencana;12. Mengetahui bagaimana mematikan air, listrik, dan gas.
+13;1;Prabencana;13. Mempertimbangkan asuransi banjir.
+14;1;Prabencana;14. Berkaitan dengan harta dan kepemilikan, maka Anda bisa membuat catatan harta kita, mendokumentasikannya dalam foto, dan simpan dokumen tersebut di tempat yang aman.
+15;1;Prabencana;15. Menyimpan berbagai dokumen penting di tempat yang aman.
+16;1;Prabencana;16. Hindari membangun di tempat rawan banjir kecuali ada upaya penguatan dan peninggian bangunan rumah.
+17;1;Prabencana;17. Perhatikan berbagai instrumen listrik yang dapat memicu bahaya saat bersentuhan dengan air banjir.
+18;1;Prabencana;18. Turut serta mendirikan tenda pengungsian dan pembuatan dapur umum.
+19;1;Prabencana;19. Melibatkan diri dalam pendistribusian bantuan.
+20;1;Prabencana;20. Menggunakan air bersih dengan efisien.
+21;1;Saat Bencana;1. Apabila banjir akan terjadi di wilayah Anda, maka simaklah informasi dari berbagai media mengenai informasi banjir untuk meningkatkan kesiapsiagaan.
+22;1;Saat Bencana;2. Apabila terjadi banjir, segeralah evakuasi ke tempat yang lebih tinggi.
+23;1;Saat Bencana;3. Waspada terhadap arus bawah, saluran air, kubangan, dan tempat lain yang tergenang air.
+24;1;Saat Bencana;4. Ketahui risiko banjir dan banjir bandang di tempat Anda, misalnya banjir bandang dapat terjadi di tempat Anda dengan atau tanpa peringatan pada saat hujan biasa atau deras
+25;1;Saat Bencana;5. Apabila Anda harus bersiap untuk evakuasi: amankanrumah Anda. Apabila masih tersedia waktu, tempatkan perabot di luar rumah atau di tempat yang aman dari banjir. Barang yang lebih berharga diletakan padabagian yang lebih tinggi di dalam rumah.
+26;1;Saat Bencana;6.  Matikan semua jaringan listrik apabila ada instruksi dari pihak berwenang. Cabut alat-alat yang masih tersambung dengan listrik. Jangan menyentuh peralatan yang bermuatan listrik apabila Anda berdiri di atas/dalam air.
+27;1;Saat Bencana;7. Jika ada perintah evakuasi dan Anda harus meninggalkan rumah, jangan berjalan di arus air. Beberapa langkah berjalan di arus air dapat mengakibatkan Anda jatuh.
+28;1;Saat Bencana;8.  Apabila Anda harus berjalan di air, berjalanlah pada pijakan yang tidak bergerak. Gunakan tongkat atau sejenisnya untuk mengecek kepadatan tempat Anda berpijak.
+29;1;Saat Bencana;9.  Jangan mengemudikan mobil di wilayah banjir. Apabila air mulai naik, abaikan mobil dan keluarlah ke tempat yang lebih tinggi. Apabila hal ini tidak dilakukan, Anda dan mobil dapat tersapu arus banjir dengan cepat.
+30;1;Saat Bencana;10. Bersihkan dan siapkan penampungan air untuk berjaga-jaga seandainya kehabisan air bersih.
+31;1;Saat Bencana;11. Waspada saluran air atau tempat melintasnya air yang kemungkinan akan dilalui oleh arus yang deras karena kerap kali banjir bandang tiba tanpa peringatan.
+32;1;Pascabencana;1.  Hindari air banjir karena kemungkinan kontaminasi zat-zat berbahaya dan ancaman kesetrum.
+33;1;Pascabencana;2. Waspada dengan instalasi listrik.
+34;1;Pascabencana;3. Hindari air yang bergerak.
+35;1;Pascabencana;4.  Hindari area yang airnya baru saja surut karena jalan bisasaja keropos dan ambles.
+36;1;Pascabencana;5.  Hindari lokasi yang masih terkena bencana, kecuali jika pihak yang berwenang membutuhkan sukarelawan.
+37;1;Pascabencana;6. Kembali ke rumah sesuai dengan perintah dari pihak yang berwenang.
+38;1;Pascabencana;7. Tetap di luar gedung/rumah yang masih dikelilingi air.
+39;1;Pascabencana;8. Hati-hati saat memasuki gedung karena ancaman kerusakan yang tidak terlihat seperti pada fondasi.
+40;1;Pascabencana;9. Perhatikan kesehatan dan keselamatan keluarga dengan mencuci tangan menggunakan sabun dan air bersih jikaAnda terkena air banjir.
+41;1;Pascabencana;10.  Buang makanan yang terkontaminasi air banjir.
+42;1;Pascabencana;11. Dengarkan berita atau informasi mengenai kondisi air, serta di mana mendapatkan bantuan perumahan/shelter, pakaian, dan makanan.
+43;1;Pascabencana;12. Dapatkan perawatan kesehatan di fasilitas kesehatan terdekat.
+44;1;Pascabencana;13. Bersihkan tempat tinggal dam lingkungan rumah dari sisa-sisa kotoran setelah banjir.
+45;1;Pascabencana;14.  Terlibat dalam kaporitisasi sumur gali.
+46;1;Pascabencana;15. Terlibat dalam perbaikan jamban dan saluran pembuangan air limbah (SPAL).
