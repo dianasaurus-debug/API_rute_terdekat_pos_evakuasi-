@@ -17,8 +17,8 @@ class CreateDesaTable extends Migration
             $table->id();
             $table->foreignId('kecamatan_id')->constrained('kecamatan')->onDelete('cascade');
             $table->string('name');
-            $table->bigInteger('longitude');
-            $table->bigInteger('latitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }

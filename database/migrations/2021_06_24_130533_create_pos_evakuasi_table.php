@@ -18,8 +18,8 @@ class CreatePosEvakuasiTable extends Migration
             $table->foreignId('desa_id')->constrained('desa')->onDelete('cascade');
             $table->string('name');
             $table->string('address');
-            $table->bigInteger('latitude');
-            $table->bigInteger('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }
