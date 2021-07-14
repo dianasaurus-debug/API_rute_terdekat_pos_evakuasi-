@@ -1,16 +1,16 @@
-id;bencana_id;name;tindakan
-1;3;Prabencana;1. Membuat rumah/bangunan yang kokoh.
-2;3;Prabencana;2. Meningkatkan pengetahuan tentang angin puting beliung dan cara penyelamatan diri.
-3;3;Prabencana;3. Memperhatikan tanda-tanda terjadinya angin puting beliung, seperti udara terasa panas, kemudian muncul awan gelap yang berlangsung hingga sore hari.
-4;3;Saat Bencana;1. Bawa masuk barang-barang ke dalam rumah, agar tidak terbawa angin.
-5;3;Saat Bencana;2. Tutup jendela dan pintu lalu kunci.
-6;3;Saat Bencana;3. Matikan semua aliran listrik dan peralatan elektronik.
-7;3;Saat Bencana;4. Jika ada potensi petir akan menyambar, segera membungkuk, duduk dan peluk lutut ke dada.
-8;3;Saat Bencana;5. Jangan tiarap di atas tanah.
-9;3;Saat Bencana;6. Hindari bangunan yang tinggi, tiang listrik, papan reklame, dan sebagainya.
-10;3;Saat Bencana;7. Segera masuk ke dalam rumah atau bangunan yang kokoh.
-11;3;Saat Bencana;8. Jangan berlindung di bawah pohon besar dan papan reklame.
-12;3;Pascabencana;1. Pastikan tidak ada anggota keluarga yang cedera.
-13;3;Pascabencana;2. Bila jatuh korban, segera berikan pertolongan darurat.
-14;3;Pascabencana;3. Laporkan segera kepada yang berwenang jika ada kerusakan yang berhubungan dengan listrik, gas, dan kerusakan lainnya.
-15;3;Pascabencana;4. Jika dalam perjalanan, teruskan kembali dengan berhati-hati.
+"id","bencana_id","name","tindakan"
+"1","3","Prabencana","1. Membuat rumah/bangunan yang kokoh."
+"2","3","Prabencana","2. Meningkatkan pengetahuan tentang angin puting beliung dan cara penyelamatan diri."
+"3","3","Prabencana","3. Memperhatikan tanda-tanda terjadinya angin puting beliung, seperti udara terasa panas, kemudian muncul awan gelap yang berlangsung hingga sore hari."
+"4","3","Saat Bencana","1. Bawa masuk barang-barang ke dalam rumah, agar tidak terbawa angin."
+"5","3","Saat Bencana","2. Tutup jendela dan pintu lalu kunci."
+"6","3","Saat Bencana","3. Matikan semua aliran listrik dan peralatan elektronik."
+"7","3","Saat Bencana","4. Jika ada potensi petir akan menyambar, segera membungkuk, duduk dan peluk lutut ke dada."
+"8","3","Saat Bencana","5. Jangan tiarap di atas tanah."
+"9","3","Saat Bencana","6. Hindari bangunan yang tinggi, tiang listrik, papan reklame, dan sebagainya."
+"10","3","Saat Bencana","7. Segera masuk ke dalam rumah atau bangunan yang kokoh."
+"11","3","Saat Bencana","8. Jangan berlindung di bawah pohon besar dan papan reklame."
+"12","3","Pascabencana","1. Pastikan tidak ada anggota keluarga yang cedera."
+"13","3","Pascabencana","2. Bila jatuh korban, segera berikan pertolongan darurat."
+"14","3","Pascabencana","3. Laporkan segera kepada yang berwenang jika ada kerusakan yang berhubungan dengan listrik, gas, dan kerusakan lainnya."
+"15","3","Pascabencana","4. Jika dalam perjalanan, teruskan kembali dengan berhati-hati."
