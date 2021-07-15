@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KecamatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('home');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('home');
+    })->name('dashboard');
+
+    Route::prefix('kecamatan')->group(function () {
+        Route::get('/', [KecamatanController::class, 'index'])->name('kecamatan.index');
+        Route::get('/tambah', [KecamatanController::class, 'create'])->name('kecamatan.create');
+        Route::post('/tambah', [KecamatanController::class, 'store'])->name('kecamatan.store');
+        Route::get('/{kecamatan}/edit', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
+        Route::put('/{kecamatan}/update', [KecamatanController::class, 'update'])->name('kecamatan.update');
+        Route::delete('/{kecamatan}/delete', [KecamatanController::class, 'destroy'])->name('kecamatan.destroy');
+    });
+});
 
 require __DIR__.'/auth.php';

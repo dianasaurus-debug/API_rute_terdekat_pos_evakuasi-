@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li>
-                <a href="./kecamatan.html">
+                <a href="{{ route('kecamatan.index') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>Data Kecamatan</p>
                 </a>
