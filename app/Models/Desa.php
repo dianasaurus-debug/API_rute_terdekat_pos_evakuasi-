@@ -14,7 +14,7 @@ class Desa extends Model
 
     protected $fillable = [
         'kecamatan_id',
-        'name',
+        'nama',
         'longitude',
         'latitude'
     ];

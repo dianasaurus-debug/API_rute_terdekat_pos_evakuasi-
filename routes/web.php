@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DesaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 
 /*
@@ -29,6 +30,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{kecamatan}/edit', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
         Route::put('/{kecamatan}/update', [KecamatanController::class, 'update'])->name('kecamatan.update');
         Route::delete('/{kecamatan}/delete', [KecamatanController::class, 'destroy'])->name('kecamatan.destroy');
+    });
+
+    Route::prefix('desa')->group(function () {
+        Route::get('/', [DesaController::class, 'index'])->name('desa.index');
+        Route::get('/tambah', [DesaController::class, 'create'])->name('desa.create');
+        Route::post('/tambah', [DesaController::class, 'store'])->name('desa.store');
+        Route::get('/{desa}/edit', [DesaController::class, 'edit'])->name('desa.edit');
+        Route::put('/{desa}/update', [DesaController::class, 'update'])->name('desa.update');
+        Route::delete('/{desa}/delete', [DesaController::class, 'destroy'])->name('desa.destroy');
     });
 });
 

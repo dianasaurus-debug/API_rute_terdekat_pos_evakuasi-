@@ -17,8 +17,8 @@
                     <p>Data User</p>
                 </a>
             </li>
-            <li>
-                <a href="./desa.html">
+            <li class="{{ request()->routeIs('desa*') ? 'active' : '' }}">
+                <a href="{{ route('desa.index') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>Data Desa</p>
                 </a>

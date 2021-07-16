@@ -25,7 +25,9 @@
                         <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
                             id="nama" value="{{ old('nama') }}" placeholder="Tulis nama kecamatan">
                         @error('nama')
-                        <small class="text-danger">{{ $message }}</small>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </div>
                     <div class="form-row">
@@ -35,7 +37,9 @@
                                 class="form-control @error('latitude') is-invalid @enderror" id="latitude"
                                 value="{{ old('latitude') }}" placeholder="Tulis latitude">
                             @error('latitude')
-                            <small class="text-danger">{{ $message }}</small>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
@@ -44,7 +48,9 @@
                                 class="form-control @error('longitude') is-invalid @enderror" id="longitude"
                                 value="{{ old('longitude') }}" placeholder="Tulis longitude">
                             @error('longitude')
-                            <small class="text-danger">{{ $message }}</small>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -52,7 +58,8 @@
                     <a class="btn btn-secondary" href="{{ route('kecamatan.index') }}">Kembali</a>
                 </form>
             </div>
-            <div class="card-footer ">
+            <div class="card-footer">
+                <hr>
                 <div class="stats">
                     <i class="fa fa-info-circle"></i> Pastikan isian data benar
                 </div>

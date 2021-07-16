@@ -19,7 +19,7 @@ class RiwayatAnginSeeder extends Seeder
         $reader = Reader::createFromPath(__DIR__ . '/data/dat_riwayat_angin.csv', 'r');
         $reader->setHeaderOffset(0);
         $records = collect($reader->getRecords())->map(function ($item) {
-            $desa_id = DB::table('desa')->where('name', $item['nama_desa'])->value('id');
+            $desa_id = DB::table('desa')->where('nama', $item['nama_desa'])->value('id');
             $date = new Carbon($item['date']);
             return [
                 'bencana_id' => $item['bencana_id'],
