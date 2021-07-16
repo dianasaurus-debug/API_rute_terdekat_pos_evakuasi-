@@ -79,7 +79,6 @@ class DesaController extends Controller
     public function update(Request $request, Desa $desa)
     {
         $request->validate([
-            'nama' => 'required|string|max:50',
             'nama' => 'required|string|max:50|unique:desa,nama,' . $desa->id . ',id,kecamatan_id,' . $request->kecamatan_id,
             'latitude' => 'nullable|string|max:50',
             'longitude' => 'nullable|string|max:50',
