@@ -30,40 +30,20 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th>
-                                No
-                            </th>
-                            <th>
-                                Desa
-                            </th>
-                            <th>
-                                Kecamatan
-                            </th>
-                            <th>
-                                Latitude
-                            </th>
-                            <th>
-                                Longitude
-                            </th>
+                            <th>No</th>
+                            <th>Desa</th>
+                            <th>Kecamatan</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
                         </thead>
                         <tbody>
                             @forelse ($desa as $item)
                             <tr>
-                                <td>
-                                    {{ $desa->firstItem() + $loop->index }}
-                                </td>
-                                <td>
-                                    {{ $item->nama }}
-                                </td>
-                                <td>
-                                    {{ $item->kecamatan->nama }}
-                                </td>
-                                <td>
-                                    {{ $item->latitude }}
-                                </td>
-                                <td>
-                                    {{ $item->longitude }}
-                                </td>
+                                <td>{{ $desa->firstItem() + $loop->index }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->kecamatan->nama }}</td>
+                                <td>{{ $item->latitude }}</td>
+                                <td>{{ $item->longitude }}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group">
                                         <a class="btn btn-sm btn-outline-secondary badge" href="{{ route('desa.edit', $item) }}">

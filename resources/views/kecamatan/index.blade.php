@@ -30,34 +30,18 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                            <th>
-                                No
-                            </th>
-                            <th>
-                                Kecamatan
-                            </th>
-                            <th>
-                                Latitude
-                            </th>
-                            <th>
-                                Longitude
-                            </th>
+                            <th>No</th>
+                            <th>Kecamatan</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
                         </thead>
                         <tbody>
                             @forelse ($kecamatan as $item)
                             <tr>
-                                <td>
-                                    {{ $kecamatan->firstItem() + $loop->index }}
-                                </td>
-                                <td>
-                                    {{ $item->nama }}
-                                </td>
-                                <td>
-                                    {{ $item->latitude }}
-                                </td>
-                                <td>
-                                    {{ $item->longitude }}
-                                </td>
+                                <td>{{ $kecamatan->firstItem() + $loop->index }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->latitude }}</td>
+                                <td>{{ $item->longitude }}</td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group">
                                         <a class="btn btn-sm btn-outline-secondary badge" href="{{ route('kecamatan.edit', $item) }}">
