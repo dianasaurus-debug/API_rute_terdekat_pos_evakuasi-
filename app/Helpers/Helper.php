@@ -2,11 +2,13 @@
 
 namespace App\Helpers;
 
-function getLastUpdatedData($data)
+function getLastUpdatedData($table)
 {
-    $lastUpdatedTime = $data::orderBy('updated_at', 'desc')->first()->updated_at;
-    if ($lastUpdatedTime != null) {
-        return $lastUpdatedTime->diffForHumans();
+    $data = $table::orderBy('updated_at', 'desc')->first();
+
+    if ($data && $data->updated_at) {
+        return $data->updated_at->diffForHumans();
     }
+
     return null;
 }

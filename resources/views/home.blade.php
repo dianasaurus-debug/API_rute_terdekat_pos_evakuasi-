@@ -14,7 +14,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Desa</p>
-                                <p class="card-title">419 Desa<p>
+                                <small class="card-title">{{ $data['desa'][0] }} Desa</small>
                             </div>
                         </div>
                     </div>
@@ -22,8 +22,11 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update
+                        @if ($data['desa'][1])
+                        <i class="fa fa-history"></i> {{ $data['desa'][1] }}
+                        @else
+                        <i class="fa fa-refresh"></i> Update
+                        @endif
                     </div>
                 </div>
             </div>
@@ -40,7 +43,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Kecamatan</p>
-                                <p class="card-title">28 Kec<p>
+                                <small class="card-title">{{ $data['kecamatan'][0] }} Kec</small>
                             </div>
                         </div>
                     </div>
@@ -48,8 +51,11 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i>
-                        Update
+                        @if ($data['kecamatan'][1])
+                        <i class="fa fa-history"></i> {{ $data['kecamatan'][1] }}
+                        @else
+                        <i class="fa fa-refresh"></i> Update
+                        @endif
                     </div>
                 </div>
             </div>
@@ -66,7 +72,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Lap Bencana</p>
-                                <p class="card-title">0 Lap<p>
+                                <small class="card-title">{{ $data['lap_bencana'][0] }} Lap</small>
                             </div>
                         </div>
                     </div>
@@ -74,8 +80,11 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-clock-o"></i>
-                        1 bulan terakhir
+                        @if ($data['lap_bencana'][1])
+                        <i class="fa fa-history"></i> {{ $data['lap_bencana'][1] }}
+                        @else
+                        <i class="fa fa-refresh"></i> Update
+                        @endif
                     </div>
                 </div>
             </div>
@@ -92,7 +101,7 @@
                         <div class="col-7 col-md-8">
                             <div class="numbers">
                                 <p class="card-category">Lap Bantuan</p>
-                                <p class="card-title">0 Lap<p>
+                                <small class="card-title">{{ $data['lap_bantuan'][0] }} Lap</small>
                             </div>
                         </div>
                     </div>
@@ -100,8 +109,11 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-clock-o"></i>
-                        1 bulan terakhir
+                        @if ($data['lap_bantuan'][1])
+                        <i class="fa fa-history"></i> {{ $data['lap_bantuan'][1] }}
+                        @else
+                        <i class="fa fa-refresh"></i> Update
+                        @endif
                     </div>
                 </div>
             </div>
