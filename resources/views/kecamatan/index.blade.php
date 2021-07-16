@@ -89,10 +89,10 @@
             </div>
             <div class="card-footer ">
                 {!! $kecamatan->links() !!}
-                @if ($lastUpdatedDate)
+                @if ($lastUpdatedTime)
                 <hr>
                 <div class="stats">
-                    <i class="fa fa-history"></i> Diperbaiki {{ $lastUpdatedDate }}
+                    <i class="fa fa-history"></i> Diperbaiki {{ $lastUpdatedTime }}
                 </div> 
                 @endif
             </div>

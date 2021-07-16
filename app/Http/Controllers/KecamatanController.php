@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
+use function App\Helpers\getLastUpdatedData;
+
 class KecamatanController extends Controller
 {
     /**
@@ -16,12 +18,9 @@ class KecamatanController extends Controller
     {
         $kecamatan = Kecamatan::orderBy('nama')->paginate(5);
 
-        $lastUpdatedDate = Kecamatan::orderBy('updated_at', 'desc')->first()->updated_at;
-        if ($lastUpdatedDate != null) {
-            $lastUpdatedDate = $lastUpdatedDate->diffForHumans();
-        }
+        $lastUpdatedTime = getLastUpdatedData(Kecamatan::class);
 
-        return view('kecamatan.index', compact('kecamatan', 'lastUpdatedDate'));
+        return view('kecamatan.index', compact('kecamatan', 'lastUpdatedTime'));
     }
 
     /**
