@@ -5,13 +5,13 @@
                 <img src="../assets/img/logo-small.png">
             </div>
         </a>
-        <a href="./dashboard.html" class="simple-text logo-normal">
+        <a href="{{ route('dashboard') }}" class="simple-text logo-normal">
             Web Admin
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active ">
+            <li class="">
                 <a href="./datauser.html">
                     <i class="nc-icon nc-circle-10"></i>
                     <p>Data User</p>
@@ -23,7 +23,7 @@
                     <p>Data Desa</p>
                 </a>
             </li>
-            <li>
+            <li class="{{ request()->routeIs('kecamatan*') ? 'active' : '' }}">
                 <a href="{{ route('kecamatan.index') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>Data Kecamatan</p>
