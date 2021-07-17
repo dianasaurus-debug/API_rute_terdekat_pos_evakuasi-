@@ -13,9 +13,19 @@ class Bencana extends Model
 
     protected $fillable = ['name'];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sopBpbd()
     {
-        return $this->hasOne(SopBpbd::class);
+        return $this->hasMany(SopBpbd::class);
     }
 
     public function riwayatBencana()

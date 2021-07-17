@@ -17,8 +17,20 @@ class SopBpbd extends Model
         'tindakan'
     ];
 
+    protected $appends = [
+        'is_first'
+    ];
+
     public function bencana()
     {
         return $this->belongsTo(Bencana::class);
+    }
+
+    public function getIsFirstAttribute()
+    {
+        $sop = self::where('bencana_id', $this->bencana_id)
+            ->where('nama', $this->nama)
+            ->first();
+        return $sop->id == $this->id;
     }
 }

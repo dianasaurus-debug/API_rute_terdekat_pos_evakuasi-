@@ -31,7 +31,7 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table">
-                        <thead class=" text-primary">
+                        <thead class="text-primary">
                             <th>No</th>
                             <th>Nama Posko</th>
                             <th>Alamat</th>
@@ -43,7 +43,7 @@
                         <tbody>
                             @forelse ($posko as $item)
                             <tr>
-                                <td>{{ $posko->firstItem() + $loop->index }}</td>
+                                <td>{{ $posko->firstItem() + $loop->index }}.</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->alamat }}</td>
                                 <td>{{ $item->desa->nama }}</td>

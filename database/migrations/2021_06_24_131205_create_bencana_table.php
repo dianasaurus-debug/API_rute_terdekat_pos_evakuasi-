@@ -15,7 +15,8 @@ class CreateBencanaTable extends Migration
     {
         Schema::create('bencana', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nama');
+            $table->string('slug');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SopController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\PoskoController;
 use App\Http\Controllers\DashboardController;
@@ -50,6 +51,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{posevakuasi}/update', [PoskoController::class, 'update'])->name('posko.update');
         Route::delete('/{posevakuasi}/delete', [PoskoController::class, 'destroy'])->name('posko.destroy');
     });
+
+    Route::get('/sop/{bencana}', SopController::class)->name('sop.index');
 });
 
 require __DIR__.'/auth.php';

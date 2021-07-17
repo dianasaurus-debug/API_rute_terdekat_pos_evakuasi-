@@ -53,8 +53,8 @@
                     <p>Laporan Bencana</p>
                 </a>
             </li>
-            <li class="active-pro">
-                <a href="./sop.html">
+            <li class="active-pro {{ request()->routeIs('sop*') ? 'active' : '' }}">
+                <a href="{{ route('sop.index', 'banjir') }}">
                     <i class="nc-icon nc-spaceship"></i>
                     <p>SOP BPBD</p>
                 </a>

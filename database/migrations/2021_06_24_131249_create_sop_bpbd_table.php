@@ -16,7 +16,7 @@ class CreateSopBpbdTable extends Migration
         Schema::create('sop_bpbd', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bencana_id')->constrained('bencana')->onDelete('cascade');
-            $table->string('name');
+            $table->string('nama');
             $table->string('tindakan');
             $table->timestamps();
         });
