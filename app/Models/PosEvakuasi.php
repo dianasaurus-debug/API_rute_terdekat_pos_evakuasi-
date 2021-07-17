@@ -13,10 +13,11 @@ class PosEvakuasi extends Model
 
     protected $fillable = [
         'desa_id',
-        'name',
-        'address',
+        'nama',
+        'alamat',
         'latitude',
-        'longitude'
+        'longitude',
+        'deskripsi'
     ];
 
     public function desa()

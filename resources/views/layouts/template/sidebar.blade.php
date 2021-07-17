@@ -29,8 +29,8 @@
                     <p>Data Kecamatan</p>
                 </a>
             </li>
-            <li>
-                <a href="./posko.html">
+            <li class="{{ request()->routeIs('posko*') ? 'active' : '' }}">
+                <a href="{{ route('posko.index') }}">
                     <i class="nc-icon nc-bullet-list-67"></i>
                     <p>Posko Evakuasi</p>
                 </a>

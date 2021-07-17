@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DesaController;
+use App\Http\Controllers\PoskoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 
@@ -39,6 +40,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{desa}/edit', [DesaController::class, 'edit'])->name('desa.edit');
         Route::put('/{desa}/update', [DesaController::class, 'update'])->name('desa.update');
         Route::delete('/{desa}/delete', [DesaController::class, 'destroy'])->name('desa.destroy');
+    });
+
+    Route::prefix('posko-evakuasi')->group(function () {
+        Route::get('/', [PoskoController::class, 'index'])->name('posko.index');
+        Route::get('/tambah', [PoskoController::class, 'create'])->name('posko.create');
+        Route::post('/tambah', [PoskoController::class, 'store'])->name('posko.store');
+        Route::get('/{posevakuasi}/edit', [PoskoController::class, 'edit'])->name('posko.edit');
+        Route::put('/{posevakuasi}/update', [PoskoController::class, 'update'])->name('posko.update');
+        Route::delete('/{posevakuasi}/delete', [PoskoController::class, 'destroy'])->name('posko.destroy');
     });
 });
 

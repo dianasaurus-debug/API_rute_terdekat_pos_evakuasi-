@@ -16,10 +16,11 @@ class CreatePosEvakuasiTable extends Migration
         Schema::create('pos_evakuasi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('desa_id')->constrained('desa')->onDelete('cascade');
-            $table->string('name');
-            $table->string('address');
+            $table->string('nama');
+            $table->string('alamat');
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }
