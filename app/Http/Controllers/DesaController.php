@@ -45,10 +45,10 @@ class DesaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:50|unique:desa,nama,NULL,id,kecamatan_id,' . $request->kecamatan_id,
+            'nama' => 'required|string|max:100|unique:desa,nama,NULL,id,kecamatan_id,' . $request->kecamatan_id,
             'kecamatan_id' => 'required|exists:kecamatan,id',
-            'latitude' => 'nullable|string|max:50',
-            'longitude' => 'nullable|string|max:50',
+            'latitude' => 'nullable|string|max:100',
+            'longitude' => 'nullable|string|max:100',
         ]);
 
         Desa::create($request->all());
@@ -79,9 +79,9 @@ class DesaController extends Controller
     public function update(Request $request, Desa $desa)
     {
         $request->validate([
-            'nama' => 'required|string|max:50|unique:desa,nama,' . $desa->id . ',id,kecamatan_id,' . $request->kecamatan_id,
-            'latitude' => 'nullable|string|max:50',
-            'longitude' => 'nullable|string|max:50',
+            'nama' => 'required|string|max:100|unique:desa,nama,' . $desa->id . ',id,kecamatan_id,' . $request->kecamatan_id,
+            'latitude' => 'nullable|string|max:100',
+            'longitude' => 'nullable|string|max:100',
         ]);
 
         $desa->update($request->all());

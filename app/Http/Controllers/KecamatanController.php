@@ -42,9 +42,9 @@ class KecamatanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|unique:kecamatan,nama|string|max:50',
-            'latitude' => 'nullable|string|max:50',
-            'longitude' => 'nullable|string|max:50',
+            'nama' => 'required|unique:kecamatan,nama|string|max:100',
+            'latitude' => 'nullable|string|max:100',
+            'longitude' => 'nullable|string|max:100',
         ]);
 
         Kecamatan::create($request->all());
@@ -73,9 +73,9 @@ class KecamatanController extends Controller
     public function update(Request $request, Kecamatan $kecamatan)
     {
         $request->validate([
-            'nama' => 'required|string|max:50|unique:kecamatan,nama,' . $kecamatan->id,
-            'latitude' => 'nullable|string|max:50',
-            'longitude' => 'nullable|string|max:50',
+            'nama' => 'required|string|max:100|unique:kecamatan,nama,' . $kecamatan->id,
+            'latitude' => 'nullable|string|max:100',
+            'longitude' => 'nullable|string|max:100',
         ]);
 
         $kecamatan->update($request->all());
