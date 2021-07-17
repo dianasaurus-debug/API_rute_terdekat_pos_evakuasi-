@@ -21,7 +21,7 @@
                 <form method="POST" action="{{ route('kecamatan.store') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Nama Kecamatan</label>
+                        <label for="nama">Nama Kecamatan <small class="text-danger">(wajib diisi)</small></label>
                         <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
                             id="nama" value="{{ old('nama') }}" placeholder="Tulis nama kecamatan">
                         @error('nama')

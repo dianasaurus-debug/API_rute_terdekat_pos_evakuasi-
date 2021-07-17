@@ -5,8 +5,8 @@
     <div class="col-md-12">
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('desa.index') }}">Kecamatan</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Kecamatan</li>
+                <li class="breadcrumb-item"><a href="{{ route('desa.index') }}">Desa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Desa</li>
             </ol>
         </nav>
     </div>
@@ -22,7 +22,7 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="nama">Nama Kecamatan</label>
+                        <label for="nama">Nama Desa <small class="text-danger">(wajib diisi)</small></label>
                         <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
                             id="nama" value="{{ old('nama', $desa->nama) }}" placeholder="Tulis nama desa">
                         @error('nama')
@@ -32,7 +32,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="kecamatan">Kecamatan</label>
+                        <label for="kecamatan">Kecamatan <small class="text-danger">(wajib diisi)</small></label>
                         <select name="kecamatan_id" 
                             class="form-control js-select @error('kecamatan_id') is-invalid @enderror"
                             id="kecamatan" placeholder="Pilih kecamatan">
@@ -90,6 +90,10 @@
 @push('head')
 <!-- Select2 -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+    .select2-selection { overflow: hidden; }
+    .select2-selection__rendered { white-space: normal; word-break: break-all; }
+</style>
 @endpush
 
 @push('script')
@@ -97,7 +101,9 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.js-select').select2();
+        $('.js-select').select2({
+            width: '100%'
+        });
     });
 </script>
 @endpush
