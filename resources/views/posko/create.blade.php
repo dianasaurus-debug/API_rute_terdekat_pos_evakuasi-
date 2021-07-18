@@ -45,10 +45,14 @@
                         <select name="desa_id" 
                             class="form-control js-select @error('desa_id') is-invalid @enderror"
                             id="desa" placeholder="Pilih desa">
-                            @foreach ($desa as $item)
-                            <option value="{{ $item->id }}" {{ old('desa_id') == $item->id ? 'selected' : '' }}>
-                                {{ $item->nama }}
-                            </option>
+                            @foreach ($kecamatan as $kec)
+                            <optgroup label="{{ $kec->nama }}">
+                                @foreach ($kec->desa()->orderBy('nama')->get() as $desa)
+                                <option value="{{ $desa->id }}" {{ old('desa_id') == $desa->id ? 'selected' : '' }}>
+                                    {{ $desa->nama }}
+                                </option>
+                                @endforeach
+                            </optgroup>
                             @endforeach
                         </select>
                         @error('desa_id')

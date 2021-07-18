@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Desa;
+use App\Models\Kecamatan;
 use App\Models\PosEvakuasi;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use function App\Helpers\getLastUpdatedData;
 
 class PoskoController extends Controller
@@ -31,9 +31,9 @@ class PoskoController extends Controller
      */
     public function create()
     {
-        $desa = Desa::orderBy('nama')->get(['id', 'nama']);
+        $kecamatan = Kecamatan::all();
 
-        return view('posko.create', compact('desa'));
+        return view('posko.create', compact('kecamatan'));
     }
 
     /**
@@ -67,9 +67,9 @@ class PoskoController extends Controller
     public function edit(PosEvakuasi $posevakuasi)
     {
         $posko = $posevakuasi;
-        $desa = Desa::orderBy('nama')->get(['id', 'nama']);
+        $kecamatan = Kecamatan::all();
 
-        return view('posko.edit', compact('posko', 'desa'));
+        return view('posko.edit', compact('posko', 'kecamatan'));
     }
 
     /**
