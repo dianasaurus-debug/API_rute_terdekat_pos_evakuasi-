@@ -15,7 +15,7 @@ class LaporanBencana extends Model
         'user_id',
         'bencana_id',
         'tanggal',
-        'description',
+        'deskripsi',
         'status'
     ];
 

@@ -15,7 +15,7 @@ class LaporanBantuan extends Model
         'user_id',
         'bantuan_id',
         'tanggal',
-        'description'
+        'deskripsi'
     ];
 
     public function validation() 
