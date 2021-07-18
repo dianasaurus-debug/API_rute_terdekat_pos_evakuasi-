@@ -18,13 +18,18 @@ class LaporanBantuan extends Model
         'description'
     ];
 
-    public function validation() 
+    public function validation()
     {
         return $this->morphOne(Validation::class, 'validationable');
     }
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function bantuan()
+    {
+        return $this->belongsTo(Bantuan::class, 'bantuan_id', 'id');
     }
 }

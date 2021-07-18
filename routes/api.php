@@ -2,7 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\RiwayatBencanaController;
+use App\Http\Controllers\API\PosEvakuasiController;
+use App\Http\Controllers\API\LaporanBencanaController;
+use App\Http\Controllers\API\LaporanBantuanController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +20,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::group(['prefix' => 'auth'], function(){
+    Route::post('login', [UserController::class, 'login']);
+    Route::post('signup', [UserController::class, 'signup']);
+});
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
+    Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);
+
+    Route::get('laporan-bencana', [LaporanBencanaController::class, 'index']);
+    Route::post('laporan-bencana', [LaporanBencanaController::class, 'store']);
+    Route::put('laporan-bencana/validate/{id}', [LaporanBencanaController::class, 'validasi']);
+    Route::put('laporan-bencana/reject/{id}', [LaporanBencanaController::class, 'reject']);
+
+    Route::get('laporan-bantuan', [LaporanBantuanController::class, 'index']);
+    Route::post('laporan-bantuan', [LaporanBantuanController::class, 'store']);
+    Route::put('laporan-bantuan/validate/{id}', [LaporanBantuanController::class, 'validasi']);
+    Route::put('laporan-bantuan/execute/{id}', [LaporanBantuanController::class, 'laksanakan']);
+
+
+    Route::get('profile', [UserController::class, 'user']);
+    Route::get('logout', [UserController::class, 'logout']);
 });

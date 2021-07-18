@@ -19,7 +19,7 @@ class LaporanBencana extends Model
         'status'
     ];
 
-    public function validation() 
+    public function validation()
     {
         return $this->morphOne(Validation::class, 'validationable');
     }
@@ -27,5 +27,10 @@ class LaporanBencana extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function bencana()
+    {
+        return $this->belongsTo(Bencana::class);
     }
 }
