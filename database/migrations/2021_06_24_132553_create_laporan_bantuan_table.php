@@ -17,7 +17,7 @@ class CreateLaporanBantuanTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('bantuan_id')->constrained('bantuan')->onDelete('cascade');
-            $table->date('date');
+            $table->date('tanggal');
             $table->text('description');
             $table->timestamps();
         });

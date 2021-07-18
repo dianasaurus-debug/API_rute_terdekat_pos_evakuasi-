@@ -20,11 +20,11 @@ class RiwayatKekeringanSeeder extends Seeder
         $reader->setHeaderOffset(0);
         $records = collect($reader->getRecords())->map(function ($item) {
             $desa_id = DB::table('desa')->where('nama', $item['nama_desa'])->value('id');
-            $date = new Carbon($item['date']);
+            $date = new Carbon($item['tanggal']);
             return [
                 'bencana_id' => $item['bencana_id'],
                 'desa_id' => $desa_id,
-                'date' => $date,
+                'tanggal' => $date,
                 'latitude' => $item['latitude'],
                 'longitude' => $item['longitude']
             ];

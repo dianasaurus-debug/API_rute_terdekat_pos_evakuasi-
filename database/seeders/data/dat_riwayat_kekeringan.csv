@@ -1,4 +1,4 @@
-"id","bencana_id","nama_desa","date","latitude","longitude"
+"id","bencana_id","nama_desa","tanggal","latitude","longitude"
 "1","2","Sugihwaras","1/1/2019","",""
 "2","2","Luwihaji","1/1/2019","",""
 "3","2","Jumok","1/1/2019","",""

@@ -1,4 +1,4 @@
-"id","bencana_id","nama_desa","date","latitude","longitude"
+"id","bencana_id","nama_desa","tanggal","latitude","longitude"
 "1","4","Kedungsumber","1/1/2015","-7.36044","111.8902"
 "2","4","Papringan","1/1/2015","-7.36603","111.927208"
 "3","4","Klino","1/1/2015","-7.44379","111.79167"

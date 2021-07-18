@@ -14,7 +14,7 @@ class RiwayatBencana extends Model
     protected $fillable = [
         'bencana_id',
         'desa_id',
-        'date',
+        'tanggal',
         'latitude',
         'longitude'
     ];

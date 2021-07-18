@@ -14,7 +14,7 @@ class LaporanBencana extends Model
     protected $fillable = [
         'user_id',
         'bencana_id',
-        'date',
+        'tanggal',
         'description',
         'status'
     ];

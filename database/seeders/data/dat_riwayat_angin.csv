@@ -1,4 +1,4 @@
-"id","bencana_id","nama_desa","date","latitude","longitude"
+"id","bencana_id","nama_desa","tanggal","latitude","longitude"
 "1","3","Katur","1/1/2017","",""
 "2","3","Butoh","1/1/2017","",""
 "3","3","Sumberejo","1/1/2017","-7.22","112.6"

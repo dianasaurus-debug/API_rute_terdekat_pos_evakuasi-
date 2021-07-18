@@ -14,7 +14,7 @@ class LaporanBantuan extends Model
     protected $fillable = [
         'user_id',
         'bantuan_id',
-        'date',
+        'tanggal',
         'description'
     ];
 
