@@ -20,7 +20,7 @@ class LaporanBantuan extends Model
 
     public function validation() 
     {
-        return $this->morphOne(Validation::class, 'validationable');
+        return $this->morphOne(Validation::class, 'target');
     }
 
     public function user()
