@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SopController;
+use App\Http\Controllers\BpbdController;
 use App\Http\Controllers\DesaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PoskoController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DashboardController;
@@ -63,6 +65,24 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/sop/{bencana}', SopController::class)->name('sop.index');
+
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/tambah', [UserController::class, 'create'])->name('user.create');
+        Route::post('/tambah', [UserController::class, 'store'])->name('user.store');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/{user}/update', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/{user}/delete', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    Route::prefix('bpbd')->group(function () {
+        Route::get('/', [BpbdController::class, 'index'])->name('bpbd.index');
+        Route::get('/tambah', [BpbdController::class, 'create'])->name('bpbd.create');
+        Route::post('/tambah', [BpbdController::class, 'store'])->name('bpbd.store');
+        Route::get('/{bpbd}/edit', [BpbdController::class, 'edit'])->name('bpbd.edit');
+        Route::put('/{bpbd}/update', [BpbdController::class, 'update'])->name('bpbd.update');
+        Route::delete('/{bpbd}/delete', [BpbdController::class, 'destroy'])->name('bpbd.destroy');
+    });
 });
 
 require __DIR__.'/auth.php';

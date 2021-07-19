@@ -97,7 +97,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="4" class="bg-light text-dark">
+                                <td colspan="7" class="bg-light text-dark">
                                     <div class="text-center">Tidak ada data.</div>
                                 </td>
                             </tr>

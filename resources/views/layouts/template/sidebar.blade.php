@@ -11,8 +11,8 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="">
-                <a href="./datauser.html">
+            <li class="{{ (request()->routeIs('user*') || request()->routeIs('bpbd*')) ? 'active' : '' }}">
+                <a href="{{ route('user.index') }}">
                     <i class="nc-icon nc-circle-10"></i>
                     <p>Data User</p>
                 </a>
