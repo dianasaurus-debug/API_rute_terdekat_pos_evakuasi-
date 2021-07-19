@@ -5,6 +5,7 @@ use App\Http\Controllers\SopController;
 use App\Http\Controllers\BpbdController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LabenController;
 use App\Http\Controllers\PoskoController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DashboardController;
@@ -82,6 +83,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{bpbd}/edit', [BpbdController::class, 'edit'])->name('bpbd.edit');
         Route::put('/{bpbd}/update', [BpbdController::class, 'update'])->name('bpbd.update');
         Route::delete('/{bpbd}/delete', [BpbdController::class, 'destroy'])->name('bpbd.destroy');
+    });
+
+    Route::prefix('laporan-bencana')->group(function () {
+        Route::get('/', [LabenController::class, 'index'])->name('laben.index');
+        Route::get('/{laporanbencana}/edit', [LabenController::class, 'edit'])->name('laben.edit');
+        Route::put('/{laporanbencana}/update', [LabenController::class, 'update'])->name('laben.update');
+        Route::delete('/{laporanbencana}/delete', [LabenController::class, 'destroy'])->name('laben.destroy');
     });
 });
 

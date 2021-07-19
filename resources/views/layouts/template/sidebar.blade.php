@@ -47,8 +47,8 @@
                     <p>Laporan Bantuan</p>
                 </a>
             </li>
-            <li>
-                <a href="./lapben.html">
+            <li class="{{ request()->routeIs('laben*') ? 'active' : '' }}">
+                <a href="{{ route('laben.index') }}">
                     <i class="nc-icon nc-paper"></i>
                     <p>Laporan Bencana</p>
                 </a>
