@@ -9,7 +9,6 @@ use App\Models\Kecamatan;
 use App\Models\LaporanBantuan;
 use App\Models\LaporanBencana;
 
-use App\Models\RiwayatBencana;
 use function App\Helpers\getLastUpdatedData;
 
 class DashboardController extends Controller

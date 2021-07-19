@@ -35,8 +35,8 @@
                     <p>Posko Evakuasi</p>
                 </a>
             </li>
-            <li>
-                <a href="./riwayat.html">
+            <li class="{{ request()->routeIs('riwayat*') ? 'active' : '' }}">
+                <a href="{{ route('riwayat.index', 'banjir') }}">
                     <i class="nc-icon nc-single-copy-04"></i>
                     <p>Riwayat Bencana</p>
                 </a>

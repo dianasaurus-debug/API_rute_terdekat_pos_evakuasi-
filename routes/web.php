@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SopController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\PoskoController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 
@@ -50,6 +51,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{posevakuasi}/edit', [PoskoController::class, 'edit'])->name('posko.edit');
         Route::put('/{posevakuasi}/update', [PoskoController::class, 'update'])->name('posko.update');
         Route::delete('/{posevakuasi}/delete', [PoskoController::class, 'destroy'])->name('posko.destroy');
+    });
+
+    Route::prefix('riwayat')->group(function () {
+        Route::get('/{bencana}', [RiwayatController::class, 'index'])->name('riwayat.index');
+        Route::get('/{bencana}/tambah', [RiwayatController::class, 'create'])->name('riwayat.create');
+        Route::post('/{bencana}/tambah', [RiwayatController::class, 'store'])->name('riwayat.store');
+        Route::get('/{bencana}/{riwayatbencana}/edit', [RiwayatController::class, 'edit'])->name('riwayat.edit');
+        Route::put('/{bencana}/{riwayatbencana}/update', [RiwayatController::class, 'update'])->name('riwayat.update');
+        Route::delete('/{bencana}/{riwayatbencana}/delete', [RiwayatController::class, 'destroy'])->name('riwayat.destroy');
     });
 
     Route::get('/sop/{bencana}', SopController::class)->name('sop.index');

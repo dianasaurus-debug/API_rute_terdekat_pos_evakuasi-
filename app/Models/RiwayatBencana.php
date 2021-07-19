@@ -19,6 +19,8 @@ class RiwayatBencana extends Model
         'longitude'
     ];
 
+    public $timestamps = false;
+
     public function bencana()
     {
         return $this->belongsTo(Bencana::class);
