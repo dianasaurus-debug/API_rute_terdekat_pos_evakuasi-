@@ -44,7 +44,8 @@
                                 <td>{{ $item->bencana->nama }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $tanggal->format('d/m/y H:i'); }}</td>
-                                <td>{{ $item->status }}</td>
+                                <td>{{ $item->deskripsi }}</td>
+                                <td><div class="btn btn-primary">{{ $item->status }}</div></td>
                                 <td class="text-center align-middle">
                                     <div class="btn-group">
                                         <a class="btn btn-sm btn-outline-secondary badge" href="{{ route('laben.edit', $item) }}">

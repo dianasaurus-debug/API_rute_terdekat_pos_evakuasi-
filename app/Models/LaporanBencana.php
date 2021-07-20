@@ -16,6 +16,9 @@ class LaporanBencana extends Model
         'bencana_id',
         'tanggal',
         'deskripsi',
+    ];
+
+    protected $appends = [
         'status'
     ];
 
@@ -27,5 +30,15 @@ class LaporanBencana extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function bencana()
+    {
+        return $this->belongsTo(Bencana::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        return $this->validation ? 'DISETUJUI' : 'MENUNGGU';
     }
 }

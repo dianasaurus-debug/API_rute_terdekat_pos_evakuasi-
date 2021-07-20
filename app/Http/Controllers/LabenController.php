@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LaporanBencana;
+use App\Models\Bencana;
 use Illuminate\Http\Request;
 
+use App\Models\LaporanBencana;
 use function App\Helpers\getLastUpdatedData;
+use function GuzzleHttp\Promise\all;
 
 class LabenController extends Controller
 {
@@ -24,46 +26,17 @@ class LabenController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\LaporanBencana  $laporanBencana
-     * @return \Illuminate\Http\Response
-     */
-    public function show(LaporanBencana $laporanBencana)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\LaporanBencana  $laporanBencana
      * @return \Illuminate\Http\Response
      */
-    public function edit(LaporanBencana $laporanBencana)
+    public function edit(LaporanBencana $laporanbencana)
     {
-        //
+        $laben = $laporanbencana;
+        $bencana = Bencana::all();
+
+        return view('laben.edit', compact('laben', 'bencana'));
     }
 
     /**
@@ -73,9 +46,17 @@ class LabenController extends Controller
      * @param  \App\Models\LaporanBencana  $laporanBencana
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LaporanBencana $laporanBencana)
+    public function update(Request $request, LaporanBencana $laporanbencana)
     {
-        //
+        $request->validate([
+            'bencana_id' => 'required|exists:bencana,id',
+            'tanggal' => 'required|date',
+            'deskripsi' => 'required|string|max:255',
+        ]);
+
+        $laporanbencana->update($request->all());
+
+        return redirect()->route('laben.index')->with('success', 'Data laporan bencana berhasil diubah!');
     }
 
     /**
@@ -84,8 +65,10 @@ class LabenController extends Controller
      * @param  \App\Models\LaporanBencana  $laporanBencana
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LaporanBencana $laporanBencana)
+    public function destroy(LaporanBencana $laporanbencana)
     {
-        //
+        $laporanbencana->delete();
+
+        return redirect()->route('laben.index')->with('success', 'Data laporan bencana berhasil dihapus!');
     }
 }
