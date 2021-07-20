@@ -21,7 +21,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Cari</button>
             @if (request()->query('cari'))
-            <div class="ml-2">Menampilkan hasil untuk "{{ request()->query('cari') }}"</div>
+            <div class="mr-2">Menampilkan hasil untuk "{{ request()->query('cari') }}."</div>
+            <a href="{{ route('kecamatan.index') }}">reset</a>
             @endif
         </form>
     </div>
