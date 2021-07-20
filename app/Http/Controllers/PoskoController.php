@@ -17,7 +17,14 @@ class PoskoController extends Controller
      */
     public function index()
     {
-        $posko = PosEvakuasi::orderBy('nama')->paginate(5);
+        if (request()->query('cari')) {
+            $posko = PosEvakuasi::where(
+                'nama', 'like', 
+                '%' . request()->query('cari') . '%'
+            )->orderBy('nama')->paginate(10)->appends(request()->query());
+        } else {
+            $posko = PosEvakuasi::orderBy('nama')->paginate(5);
+        }
 
         $lastUpdatedTime = getLastUpdatedData(PosEvakuasi::class);
 
