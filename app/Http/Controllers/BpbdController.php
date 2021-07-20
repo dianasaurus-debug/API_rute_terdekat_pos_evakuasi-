@@ -17,7 +17,14 @@ class BpbdController extends Controller
      */
     public function index()
     {
-        $bpbd = Bpbd::latest()->paginate(5);
+        if (request()->query('cari')) {
+            $bpbd = Bpbd::where(
+                'username', 'like', 
+                '%' . request()->query('cari') . '%'
+            )->latest()->paginate(5)->appends(request()->query());
+        } else {
+            $bpbd = Bpbd::latest()->paginate(5);
+        }
 
         $lastUpdatedTime = getLastUpdatedData(Bpbd::class);
 

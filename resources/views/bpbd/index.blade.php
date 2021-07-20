@@ -17,6 +17,20 @@
         @include('components.alert')
     </div>
 </div>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <form method="GET" action="{{ route('bpbd.index') }}" class="form-inline">
+            <div class="form-group my-2">
+                <label for="cari" class="sr-only">Cari username bpbd</label>
+                <input type="text" name="cari" id="cari" class="form-control" placeholder="Cari username bpbd">
+            </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+            @if (request()->query('cari'))
+            <div class="ml-2">Menampilkan hasil untuk "{{ request()->query('cari') }}"</div>
+            @endif
+        </form>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="card">

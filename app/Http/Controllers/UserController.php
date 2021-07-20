@@ -17,7 +17,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::where('username', '<>', 'admin')->latest()->paginate(5);
+        if (request()->query('cari')) {
+            $user = User::where('id', '<>', 1)->where(
+                'name', 'like', 
+                '%' . request()->query('cari') . '%'
+            )->latest()->paginate(5)->appends(request()->query());
+        } else {
+            $user = User::where('id', '<>', 1)->latest()->paginate(5);
+        }
 
         $lastUpdatedTime = getLastUpdatedData(User::class);
 
