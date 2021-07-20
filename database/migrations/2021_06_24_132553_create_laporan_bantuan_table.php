@@ -16,7 +16,8 @@ class CreateLaporanBantuanTable extends Migration
         Schema::create('laporan_bantuan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('bantuan_id')->constrained('bantuan')->onDelete('cascade');
+            $table->foreignId('bencana_id')->constrained('bencana')->onDelete('cascade');
+            $table->foreignId('bantuan_id')->nullable()->constrained('bantuan')->onDelete('cascade');
             $table->date('tanggal');
             $table->text('deskripsi');
             $table->timestamps();

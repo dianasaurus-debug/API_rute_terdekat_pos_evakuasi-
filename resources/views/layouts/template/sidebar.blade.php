@@ -41,8 +41,8 @@
                     <p>Riwayat Bencana</p>
                 </a>
             </li>
-            <li>
-                <a href="./lapban.html">
+            <li class="{{ request()->routeIs('laban*') ? 'active' : '' }}">
+                <a href="{{ route('laban.index') }}">
                     <i class="nc-icon nc-tile-56"></i>
                     <p>Laporan Bantuan</p>
                 </a>

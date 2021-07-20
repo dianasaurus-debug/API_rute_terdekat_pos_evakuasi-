@@ -13,9 +13,14 @@ class LaporanBantuan extends Model
 
     protected $fillable = [
         'user_id',
+        'bencana_id',
         'bantuan_id',
         'tanggal',
         'deskripsi'
+    ];
+
+    protected $appends = [
+        'status'
     ];
 
     public function validation() 
@@ -25,6 +30,21 @@ class LaporanBantuan extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function bantuan()
+    {
+        return $this->belongsTo(Bantuan::class);
+    }
+
+    public function bencana()
+    {
+        return $this->belongsTo(Bencana::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        return $this->validation ? 'DISETUJUI' : 'MENUNGGU';
     }
 }

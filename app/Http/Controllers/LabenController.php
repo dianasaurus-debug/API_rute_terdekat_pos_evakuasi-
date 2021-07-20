@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Bencana;
 use Illuminate\Http\Request;
-
 use App\Models\LaporanBencana;
+
 use function App\Helpers\getLastUpdatedData;
-use function GuzzleHttp\Promise\all;
 
 class LabenController extends Controller
 {
