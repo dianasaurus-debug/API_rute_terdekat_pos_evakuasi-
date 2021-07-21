@@ -27,7 +27,10 @@ Route::group(['prefix' => 'auth'], function(){
 });
 
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
+    Route::get('profile', [UserController::class, 'user']);
+    Route::get('/auth/logout', [UserController::class, 'logout']);
+});
+Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
     Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);
 
     Route::get('laporan-bencana', [LaporanBencanaController::class, 'index']);
@@ -39,8 +42,3 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('laporan-bantuan', [LaporanBantuanController::class, 'store']);
     Route::put('laporan-bantuan/validate/{id}', [LaporanBantuanController::class, 'validasi']);
     Route::put('laporan-bantuan/execute/{id}', [LaporanBantuanController::class, 'laksanakan']);
-
-
-    Route::get('profile', [UserController::class, 'user']);
-    Route::get('logout', [UserController::class, 'logout']);
-});
