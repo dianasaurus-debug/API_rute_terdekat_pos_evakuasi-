@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bencana;
 use Carbon\Carbon;
 use App\Models\Desa;
+use App\Models\Bencana;
 use App\Models\Kecamatan;
+use Illuminate\Http\Request;
 use App\Models\LaporanBantuan;
-use App\Models\LaporanBencana;
 
+use App\Models\LaporanBencana;
 use function App\Helpers\getLastUpdatedData;
 
 class DashboardController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         $data = [
             'desa' => [
@@ -30,7 +31,7 @@ class DashboardController extends Controller
             ],
         ];
 
-        $riwayat = $this->getRiwayat(request()->query('bencana'));
+        $riwayat = $this->getRiwayat($request->query('bencana'));
 
         return view('home', compact('data', 'riwayat'));
     }
