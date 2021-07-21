@@ -17,7 +17,14 @@ class DesaController extends Controller
      */
     public function index()
     {
-        $desa = Desa::orderBy('nama')->paginate(5);
+        if (request()->query('cari')) {
+            $desa = Desa::where(
+                'nama', 'like', 
+                '%' . request()->query('cari') . '%'
+            )->orderBy('nama')->paginate(10)->appends(request()->query());
+        } else {
+            $desa = Desa::orderBy('nama')->paginate(10);
+        }
 
         $lastUpdatedTime = getLastUpdatedData(Desa::class);
 

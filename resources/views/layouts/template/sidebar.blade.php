@@ -11,8 +11,8 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="">
-                <a href="./datauser.html">
+            <li class="{{ (request()->routeIs('user*') || request()->routeIs('bpbd*')) ? 'active' : '' }}">
+                <a href="{{ route('user.index') }}">
                     <i class="nc-icon nc-circle-10"></i>
                     <p>Data User</p>
                 </a>
@@ -35,20 +35,20 @@
                     <p>Posko Evakuasi</p>
                 </a>
             </li>
-            <li>
-                <a href="./riwayat.html">
+            <li class="{{ request()->routeIs('riwayat*') ? 'active' : '' }}">
+                <a href="{{ route('riwayat.index', 'banjir') }}">
                     <i class="nc-icon nc-single-copy-04"></i>
                     <p>Riwayat Bencana</p>
                 </a>
             </li>
-            <li>
-                <a href="./lapban.html">
+            <li class="{{ request()->routeIs('laban*') ? 'active' : '' }}">
+                <a href="{{ route('laban.index') }}">
                     <i class="nc-icon nc-tile-56"></i>
                     <p>Laporan Bantuan</p>
                 </a>
             </li>
-            <li>
-                <a href="./lapben.html">
+            <li class="{{ request()->routeIs('laben*') ? 'active' : '' }}">
+                <a href="{{ route('laben.index') }}">
                     <i class="nc-icon nc-paper"></i>
                     <p>Laporan Bencana</p>
                 </a>

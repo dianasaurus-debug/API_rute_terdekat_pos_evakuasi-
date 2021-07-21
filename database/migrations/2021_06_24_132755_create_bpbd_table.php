@@ -17,7 +17,7 @@ class CreateBpbdTable extends Migration
             $table->id();
             $table->string('nip');
             $table->string('username');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
         });

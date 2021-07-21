@@ -16,7 +16,14 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        $kecamatan = Kecamatan::orderBy('nama')->paginate(5);
+        if (request()->query('cari')) {
+            $kecamatan = Kecamatan::where(
+                'nama', 'like', 
+                '%' . request()->query('cari') . '%'
+            )->orderBy('nama')->paginate(5)->appends(request()->query());
+        } else {
+            $kecamatan = Kecamatan::orderBy('nama')->paginate(5);
+        }
 
         $lastUpdatedTime = getLastUpdatedData(Kecamatan::class);
 

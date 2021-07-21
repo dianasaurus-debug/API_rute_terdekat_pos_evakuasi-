@@ -17,6 +17,21 @@
         @include('components.alert')
     </div>
 </div>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <form method="GET" action="{{ route('desa.index') }}" class="form-inline">
+            <div class="form-group my-2">
+                <label for="cari" class="sr-only">Cari desa</label>
+                <input type="text" name="cari" id="cari" class="form-control" placeholder="Cari desa">
+            </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+            @if (request()->query('cari'))
+            <div class="mr-2">Menampilkan hasil untuk "{{ request()->query('cari') }}."</div>
+            <a href="{{ route('desa.index') }}">reset</a>
+            @endif
+        </form>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -66,7 +81,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="4" class="bg-light text-dark">
+                                <td colspan="5" class="bg-light text-dark">
                                     <div class="text-center">Tidak ada data.</div>
                                 </td>
                             </tr>

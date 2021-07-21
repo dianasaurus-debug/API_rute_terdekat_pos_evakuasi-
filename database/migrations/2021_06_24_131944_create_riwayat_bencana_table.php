@@ -17,7 +17,7 @@ class CreateRiwayatBencanaTable extends Migration
             $table->id();
             $table->foreignId('bencana_id')->constrained('bencana')->onDelete('cascade');
             $table->foreignId('desa_id')->nullable()->constrained('desa')->onDelete('cascade');
-            $table->date('tanggal');
+            $table->dateTime('tanggal');
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
         });

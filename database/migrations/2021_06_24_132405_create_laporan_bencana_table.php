@@ -17,9 +17,8 @@ class CreateLaporanBencanaTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('bencana_id')->constrained('bencana')->onDelete('cascade');
-            $table->date('tanggal');
-            $table->text('description');
-            $table->enum('status', ['disetujui', 'ditolak', 'menunggu'])->default('menunggu');
+            $table->dateTime('tanggal');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

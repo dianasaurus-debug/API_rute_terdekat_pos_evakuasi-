@@ -121,114 +121,70 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card ">
-                <div class="card-header pagination justify-content-center">
+            <div class="card">
+                <div class="card-header text-center">
                     <div class="d-grid gap-2 d-md-block">
-                        <button class="btn btn-primary btn-round" type="button">Longsor</button>
-                        <button class="btn btn-primary btn-round" type="button">Banjir</button>
-                        <button class="btn btn-primary btn-round" type="button">Kekeringan</button>
-                        <button class="btn btn-primary btn-round" type="button">Puting Beliung</button>
+                        <a class="btn btn-primary btn-round {{ $riwayat[0]['bencana'] == 'Banjir' ? 'active' : '' }}" 
+                            href="{{ route('dashboard', ['bencana' => 'banjir']) }}">
+                            Banjir
+                        </a>
+                        <a class="btn btn-primary btn-round {{ $riwayat[0]['bencana'] == 'Kekeringan' ? 'active' : '' }}" 
+                            href="{{ route('dashboard', ['bencana' => 'kekeringan']) }}">
+                            Kekeringan
+                        </a>
+                        <a class="btn btn-primary btn-round {{ $riwayat[0]['bencana'] == 'Puting Beliung' ? 'active' : '' }}" 
+                            href="{{ route('dashboard', ['bencana' => 'puting-beliung']) }}">
+                            Puting Beliung
+                        </a>
+                        <a class="btn btn-primary btn-round {{ $riwayat[0]['bencana'] == 'Tanah Longsor' ? 'active' : '' }}" 
+                            href="{{ route('dashboard', ['bencana' => 'tanah-longsor']) }}">
+                            Tanah Longsor
+                        </a>
                     </div>
+                    <h5 class="card-title fw-bolder">RIWAYAT BENCANA {{ Str::upper($riwayat[0]['bencana']) }}</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center fw-bolder">RIWAYAT BENCANA TANAH LONGSOR</h5>
-                    <div class="row pagination justify-content-end">
-                        <div class = "col-md-2 offset-md-2">
-                            <button class="btn btn-primary" type="button">Tambah</button>
-                        </div>
-                    </div>
                     <div class="table-responsive">
                         <table class="table">
-                            <thead class=" text-primary">
-                            <th>
-                                Tahun
-                            </th>
-                            <th>
-                                Kejadian
-                            </th>
-                            <th>
-                                Kecamatan
-                            </th>
-                            <th>
-                                Desa
-                            </th>
-                            <th>
-                                Latitude
-                            </th>
-                            <th>
-                                Longitude
-                            </th>
-                            <th>
-                                Status
-                            </th>
+                            <thead class="text-primary">
+                            <th>Tahun</th>
+                            <th>Kejadian</th>
+                            <th>Kecamatan</th>
+                            <th>Desa</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Status</th>
                             </thead>
                             <tbody>
+                            @forelse ($riwayat as $item)
                             <tr>
-                                <td>
-                                    2015
+                                @if ($item['tahun'])
+                                <td class="align-top" rowspan="{{ $item['jumlah'] }}">
+                                    {{ $item['tahun'] }}
                                 </td>
-                                <td>
-                                    21
+                                <td class="align-top" rowspan="{{ $item['jumlah'] }}">
+                                    {{ $item['jumlah'] }}
                                 </td>
+                                @endif
+                                <td>{{ $item['kecamatan'] }}</td>
+                                <td>{{ $item['desa'] }}</td>
+                                <td>{{ $item['latitude'] }}</td>
+                                <td>{{ $item['longitude'] }}</td>
                                 <td>
-                                    Temayang
-                                </td>
-                                <td>
-                                    Kedungsumber
-                                </td>
-                                <td>
-                                    7568909084
-                                </td>
-                                <td>
-                                    -907865788
-                                </td>
-                                <td>
-                                    <button class="btn btn-success"> LAMA </button>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <div class="btn-group">
-                                        <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
-                                    </div>
+                                    <button class="btn {{ $item['status'] == 'LAMA' ? 'btn-success' : 'btn-warning' }}">
+                                        {{ $item['status'] }}
+                                    </button>
                                 </td>
                             </tr>
+                            @empty
                             <tr>
-                                <td>
-                                    2016
-                                </td>
-                                <td>
-                                    16
-                                </td>
-                                <td>
-                                    Padangan
-                                </td>
-                                <td>
-                                    Banjarjo
-                                </td>
-                                <td>
-                                    7568909084
-                                </td>
-                                <td>
-                                    -907865788
-                                </td>
-                                <td>
-                                    <button class="btn btn-success"> LAMA </button>
-                                </td>
-                                <td class="text-center align-middle">
-                                    <div class="btn-group">
-                                        <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
-                                    </div>
+                                <td colspan="4" class="bg-light text-dark">
+                                    <div class="text-center">Tidak ada data.</div>
                                 </td>
                             </tr>
+                            @endforelse
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="card-footer ">
-                    <hr>
-                    <div class="stats">
-                        <i class="fa fa-history"></i> Diperbaiki 3 minggu lalu
                     </div>
                 </div>
             </div>

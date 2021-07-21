@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SopController;
+use App\Http\Controllers\BpbdController;
 use App\Http\Controllers\DesaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LabanController;
+use App\Http\Controllers\LabenController;
 use App\Http\Controllers\PoskoController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 
@@ -19,7 +24,7 @@ use App\Http\Controllers\KecamatanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -52,7 +57,48 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{posevakuasi}/delete', [PoskoController::class, 'destroy'])->name('posko.destroy');
     });
 
+    Route::prefix('riwayat')->group(function () {
+        Route::get('/{bencana}', [RiwayatController::class, 'index'])->name('riwayat.index');
+        Route::get('/{bencana}/tambah', [RiwayatController::class, 'create'])->name('riwayat.create');
+        Route::post('/{bencana}/tambah', [RiwayatController::class, 'store'])->name('riwayat.store');
+        Route::get('/{bencana}/{riwayatbencana}/edit', [RiwayatController::class, 'edit'])->name('riwayat.edit');
+        Route::put('/{bencana}/{riwayatbencana}/update', [RiwayatController::class, 'update'])->name('riwayat.update');
+        Route::delete('/{bencana}/{riwayatbencana}/delete', [RiwayatController::class, 'destroy'])->name('riwayat.destroy');
+    });
+
     Route::get('/sop/{bencana}', SopController::class)->name('sop.index');
+
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/tambah', [UserController::class, 'create'])->name('user.create');
+        Route::post('/tambah', [UserController::class, 'store'])->name('user.store');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/{user}/update', [UserController::class, 'update'])->name('user.update');
+        Route::delete('/{user}/delete', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    Route::prefix('bpbd')->group(function () {
+        Route::get('/', [BpbdController::class, 'index'])->name('bpbd.index');
+        Route::get('/tambah', [BpbdController::class, 'create'])->name('bpbd.create');
+        Route::post('/tambah', [BpbdController::class, 'store'])->name('bpbd.store');
+        Route::get('/{bpbd}/edit', [BpbdController::class, 'edit'])->name('bpbd.edit');
+        Route::put('/{bpbd}/update', [BpbdController::class, 'update'])->name('bpbd.update');
+        Route::delete('/{bpbd}/delete', [BpbdController::class, 'destroy'])->name('bpbd.destroy');
+    });
+
+    Route::prefix('laporan-bencana')->group(function () {
+        Route::get('/', [LabenController::class, 'index'])->name('laben.index');
+        Route::get('/{laporanbencana}/edit', [LabenController::class, 'edit'])->name('laben.edit');
+        Route::put('/{laporanbencana}/update', [LabenController::class, 'update'])->name('laben.update');
+        Route::delete('/{laporanbencana}/delete', [LabenController::class, 'destroy'])->name('laben.destroy');
+    });
+
+    Route::prefix('laporan-bantuan')->group(function () {
+        Route::get('/', [LabanController::class, 'index'])->name('laban.index');
+        Route::get('/{laporanbantuan}/edit', [LabanController::class, 'edit'])->name('laban.edit');
+        Route::put('/{laporanbantuan}/update', [LabanController::class, 'update'])->name('laban.update');
+        Route::delete('/{laporanbantuan}/delete', [LabanController::class, 'destroy'])->name('laban.destroy');
+    });
 });
 
 require __DIR__.'/auth.php';

@@ -15,13 +15,16 @@ class LaporanBencana extends Model
         'user_id',
         'bencana_id',
         'tanggal',
-        'description',
+        'deskripsi',
+    ];
+
+    protected $appends = [
         'status'
     ];
 
-    public function validation()
+    public function validation() 
     {
-        return $this->morphOne(Validation::class, 'validationable');
+        return $this->morphOne(Validation::class, 'target');
     }
 
     public function user()
@@ -32,5 +35,10 @@ class LaporanBencana extends Model
     public function bencana()
     {
         return $this->belongsTo(Bencana::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        return $this->validation ? 'DISETUJUI' : 'MENUNGGU';
     }
 }

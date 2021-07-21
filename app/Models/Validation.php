@@ -15,7 +15,7 @@ class Validation extends Model
         'target_type'
     ];
 
-    public function validationable() {
-        return $this->morphTo();
+    public function target() {
+        return $this->morphTo(__FUNCTION__, 'target_type', 'target_id');
     }
 }

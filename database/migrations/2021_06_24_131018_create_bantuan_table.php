@@ -16,7 +16,6 @@ class CreateBantuanTable extends Migration
         Schema::create('bantuan', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->enum('status', ['disetujui', 'dilaksanakan']);
             $table->timestamps();
         });
     }
