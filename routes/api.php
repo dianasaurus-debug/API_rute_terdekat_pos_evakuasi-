@@ -7,6 +7,7 @@ use App\Http\Controllers\API\RiwayatBencanaController;
 use App\Http\Controllers\API\PosEvakuasiController;
 use App\Http\Controllers\API\LaporanBencanaController;
 use App\Http\Controllers\API\LaporanBantuanController;
+use App\Http\Controllers\API\BPBDAccountController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,10 +26,17 @@ Route::group(['prefix' => 'auth'], function(){
     Route::post('login', [UserController::class, 'login']);
     Route::post('signup', [UserController::class, 'signup']);
 });
-
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['prefix' => 'bpbd-auth'], function(){
+    Route::post('login', [BPBDAccountController::class, 'login']);
+    Route::post('signup', [BPBDAccountController::class, 'signup']);
+});
+Route::group(['middleware' => ['auth:user-api','scopes:user']], function () {
     Route::get('profile', [UserController::class, 'user']);
     Route::get('/auth/logout', [UserController::class, 'logout']);
+});
+Route::group(['prefix' => 'bpbd-auth', 'middleware' => ['auth:bpbd-api','scopes:bpbd']], function () {
+    Route::get('profile', [BPBDAccountController::class, 'user']);
+    Route::get('logout', [BPBDAccountController::class, 'logout']);
 });
 Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
     Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);

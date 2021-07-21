@@ -3,19 +3,22 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bpbd;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Passport\Exceptions\MissingScopeException;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
-class UserController extends Controller
+class BPBDAccountController extends Controller
 {
     /**
      * Create user
      *
-     * @param  [string] name
+     * @param  [string] nip
      * @param  [string] email
      * @param  [string] password
      * @param  [string] password_confirmation
@@ -24,33 +27,29 @@ class UserController extends Controller
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string',
-            'address' => 'required|string',
-            'phone' => 'required|string',
-            'username' => 'required|string|unique:users',
-            'email' => 'required|string|email|unique:users',
+            'nip' => 'required|string|unique:bpbd',
+            'username' => 'required|string|unique:bpbd',
+            'email' => 'required|string|email|unique:bpbd',
             'password' => 'required|string'
         ]);
         if ($validator->fails()) {
-          return response()->json([
-            'success' => false,
-            'message' => $validator->errors(),
-          ], 401);
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors(),
+            ], 401);
         }
-        $user = User::create([
-            'name' => $request->name,
+        $user = Bpbd::create([
+            'nip' => $request->nip,
             'username' => $request->username,
-            'phone' => $request->phone,
-            'address' => $request->address,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        $success['token'] = $user->createToken('si_tanggap_darurat',['user'])->accessToken;
+        $success['token'] = $user->createToken('si_tanggap_darurat',['bpbd'])->accessToken;
         return response()->json([
-          'success' => true,
-          'token' => $success,
-          'user' => $user
-      ]);
+            'success' => true,
+            'token' => $success,
+            'bpbd' => $user
+        ]);
     }
 
     /**
@@ -71,21 +70,21 @@ class UserController extends Controller
 //            'remember_me' => 'boolean'
         ]);
         $credentials = request(['email', 'password']);
-        if(!auth()->guard('user')->attempt($credentials))
+        if(!auth()->guard('bpbd')->attempt($credentials))
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid Email or Password',
             ], 401);
-        config(['auth.guards.api.provider' => 'user']);
-        $user = User::select('users.*')->find(auth()->guard('user')->user()->id);
-        $tokenResult = $user->createToken('si_tanggap_darurat',['user']);
+        config(['auth.guards.api.provider' => 'bpbd']);
+        $user = Bpbd::select('bpbd.*')->find(auth()->guard('bpbd')->user()->id);
+        $tokenResult = $user->createToken('si_tanggap_darurat',['bpbd']);
         $token = $tokenResult->token;
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
         $token->save();
         return response()->json([
             'success' => true,
-            'user' => $user,
+            'bpbd' => $user,
             'token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
             'expires_at' => Carbon::parse(
@@ -101,20 +100,20 @@ class UserController extends Controller
      */
     public function logout(Request $request)
     {
-        if (auth()->guard('user-api')->user()) {
-        $user = auth()->guard('user-api')->user()->token();
-        $user->revoke();
+        if (auth()->guard('bpbd-api')->user()) {
+            $user = auth()->guard('bpbd-api')->user()->token();
+            $user->revoke();
 
             return response()->json([
-              'success' => true,
-              'message' => 'Logout successfully'
-          ]);
-      }else {
-        return response()->json([
-          'success' => false,
-          'message' => 'Unable to Logout'
-        ]);
-      }
+                'success' => true,
+                'message' => 'Logout successfully'
+            ]);
+        }else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Unable to Logout'
+            ]);
+        }
     }
 
     /**
@@ -125,7 +124,7 @@ class UserController extends Controller
     public function user(Request $request)
     {
         try {
-            $user = auth()->guard('user-api')->user();
+            $user = auth()->guard('bpbd-api')->user();
         } catch (AccessDeniedHttpException $exception) {
             return response()->json([
                 'success' => false,

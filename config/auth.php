@@ -45,6 +45,25 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'user-api' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+        ],
+
+        'bpbd' => [
+            'driver' => 'session',
+            'provider' => 'bpbd',
+        ],
+
+        'bpbd-api' => [
+            'driver' => 'passport',
+            'provider' => 'bpbd',
+        ],
     ],
 
     /*
@@ -68,6 +87,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'bpbd' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Bpbd::class,
         ],
 
         // 'users' => [
