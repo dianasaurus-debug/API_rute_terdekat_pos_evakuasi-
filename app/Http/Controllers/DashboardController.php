@@ -31,7 +31,7 @@ class DashboardController extends Controller
             ],
         ];
 
-        $riwayat = $this->getRiwayat($request->query('bencana'));
+        $riwayat = $this->getRiwayat($request->get('bencana'));
 
         return view('home', compact('data', 'riwayat'));
     }
