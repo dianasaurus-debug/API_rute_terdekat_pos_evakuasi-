@@ -18,6 +18,7 @@ class PoskoEvakuasiResource extends JsonResource
             'id' => $this->id,
             'desa' => $this->desa != null ? $this->desa->nama : '-',
             'nama_posko' => $this->nama,
+            'deskripsi' => $this->deskripsi,
             'kecamatan' => $this->desa != null ? $this->desa->kecamatan->nama : '-',
             'latitude' => $this->latitude,
             'longitude' => $this->longitude

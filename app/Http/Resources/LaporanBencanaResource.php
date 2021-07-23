@@ -22,7 +22,7 @@ class LaporanBencanaResource extends JsonResource
             'bencana' => $this->bencana->nama,
             'status' => $this->status,
             'nomor_hp' => $this->user->phone,
-            'tanggal' => Carbon::createFromFormat('Y-m-d', $this->tanggal)->isoFormat('D MMMM Y'),
+            'tanggal' => Carbon::parse($this->tanggal)->isoFormat('D MMMM Y'),
         ];
     }
 }

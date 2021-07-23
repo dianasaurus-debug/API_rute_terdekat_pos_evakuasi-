@@ -18,7 +18,7 @@ class RiwayatBencanaResource extends JsonResource
             'id' => $this->id,
             'desa' => $this->desa != null ? $this->desa->nama : '-',
             'bencana' => $this->bencana != null ? $this->bencana->nama : '-',
-            'tahun' => Carbon::createFromFormat('Y-m-d', $this->tanggal)->year,
+            'tahun' => Carbon::parse($this->tanggal)->format('Y'),
             'latitude' => $this->latitude,
             'longitude' => $this->longitude
         ];

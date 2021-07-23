@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\LaporanBencanaResource;
 use App\Models\LaporanBencana;
+use App\Models\Validation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,6 @@ class LaporanBencanaController extends Controller
     public function index()
     {
         $laporan_bencana = LaporanBencana::orderBy('tanggal')->with('user', 'bencana')->get();
-
         return response()->json([
             'message' => 'Successfully display laporan bencana data',
             'data' => LaporanBencanaResource::collection($laporan_bencana)
@@ -49,7 +49,7 @@ class LaporanBencanaController extends Controller
             'bencana_id' => 'required',
         ]);
         $laporan_bencana = new LaporanBencana([
-            'user_id' => Auth::id(),
+            'user_id' => auth()->guard('user-api')->user()->id,
             'deskripsi' => $request->deskripsi,
             'tanggal' => $request->tanggal,
             'bencana_id' => $request->bencana_id,
@@ -91,11 +91,17 @@ class LaporanBencanaController extends Controller
      */
     public function validasi($id)
     {
-        $laporan_bencana = LaporanBencana::findOrFail($id);
-        $laporan_bencana->update(['status' => 'disetujui']);
-        $laporan_bencana->save();
+        $laporan_bencana = LaporanBencana::find($id);
+        $data_validasi = [
+            'target_id' => $laporan_bencana->id,
+            'target_type' => 'laporan_bencana',
+            'bpbd_id' => auth()->guard('bpbd-api')->user()->id
+        ];
+        $laporan_bencana->validation()->create($data_validasi);
         return response()->json([
-            'message' => 'Successfully approve laporan bencana data'
+            'message' => 'Sukses approve laporan bencana data',
+            'success' => true,
+            'data' => $laporan_bencana
         ]);
     }
 
@@ -107,11 +113,14 @@ class LaporanBencanaController extends Controller
      */
     public function reject($id)
     {
-        $laporan_bencana = LaporanBencana::findOrFail($id);
-        $laporan_bencana->update(['status' => 'ditolak']);
-        $laporan_bencana->save();
+        $laporan_bencana = LaporanBencana::find($id);
+        $validasi = Validation::where('target_id', $laporan_bencana->id)->where('target_type', 'App\Models\LaporanBencana');
+        $validasi->delete();
+        $laporan_bencana->delete();
         return response()->json([
-            'message' => 'Successfully reject laporan bencana data'
+            'message' => 'Sukses menolak laporan bencana data',
+            'success' => true,
+            'data' => $laporan_bencana
         ]);
     }
 }

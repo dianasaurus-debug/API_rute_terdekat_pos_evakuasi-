@@ -33,20 +33,22 @@ Route::group(['prefix' => 'bpbd-auth'], function(){
 Route::group(['middleware' => ['auth:user-api','scopes:user']], function () {
     Route::get('profile', [UserController::class, 'user']);
     Route::get('/auth/logout', [UserController::class, 'logout']);
+    Route::post('laporan-bencana', [LaporanBencanaController::class, 'store']);
+    Route::post('laporan-bantuan', [LaporanBantuanController::class, 'store']);
 });
 Route::group(['prefix' => 'bpbd-auth', 'middleware' => ['auth:bpbd-api','scopes:bpbd']], function () {
     Route::get('profile', [BPBDAccountController::class, 'user']);
     Route::get('logout', [BPBDAccountController::class, 'logout']);
 });
-Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
-    Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);
-
-    Route::get('laporan-bencana', [LaporanBencanaController::class, 'index']);
-    Route::post('laporan-bencana', [LaporanBencanaController::class, 'store']);
+Route::group(['middleware' => ['auth:bpbd-api','scopes:bpbd']], function () {
     Route::put('laporan-bencana/validate/{id}', [LaporanBencanaController::class, 'validasi']);
     Route::put('laporan-bencana/reject/{id}', [LaporanBencanaController::class, 'reject']);
-
-    Route::get('laporan-bantuan', [LaporanBantuanController::class, 'index']);
-    Route::post('laporan-bantuan', [LaporanBantuanController::class, 'store']);
     Route::put('laporan-bantuan/validate/{id}', [LaporanBantuanController::class, 'validasi']);
     Route::put('laporan-bantuan/execute/{id}', [LaporanBantuanController::class, 'laksanakan']);
+});
+
+Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
+Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);
+Route::get('laporan-bencana', [LaporanBencanaController::class, 'index']);
+Route::get('laporan-bantuan', [LaporanBantuanController::class, 'index']);
+

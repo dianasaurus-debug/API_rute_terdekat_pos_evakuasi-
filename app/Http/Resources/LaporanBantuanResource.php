@@ -22,7 +22,7 @@ class LaporanBantuanResource extends JsonResource
             'bantuan' => $this->bantuan->type,
             'status' => $this->bantuan->status,
             'nomor_hp' => $this->user->phone,
-            'tanggal' => Carbon::createFromFormat('Y-m-d', $this->tanggal)->isoFormat('D MMMM Y'),
+            'tanggal' => Carbon::parse($this->tanggal)->isoFormat('D MMMM Y'),
         ];
     }
 }
