@@ -23,11 +23,11 @@ class RiwayatBencana extends Model
 
     public function bencana()
     {
-        return $this->belongsTo(Bencana::class);
+        return $this->belongsTo(Bencana::class, 'bencana_id', 'id');
     }
 
     public function desa()
     {
-        return $this->belongsTo(Desa::class);
+        return $this->belongsTo(Desa::class,'desa_id', 'id');
     }
 }

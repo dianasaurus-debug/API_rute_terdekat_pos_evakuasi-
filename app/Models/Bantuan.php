@@ -15,6 +15,6 @@ class Bantuan extends Model
 
     public function laporanBantuan()
     {
-        return $this->hasMany(LaporanBantuan::class);
+        return $this->hasMany(LaporanBantuan::class, 'bantuan_id', 'id');
     }
 }
