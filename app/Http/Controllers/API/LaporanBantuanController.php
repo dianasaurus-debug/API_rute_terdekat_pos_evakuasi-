@@ -44,6 +44,21 @@ class LaporanBantuanController extends Controller
 
         ]);
     }
+    public function makeBantuan(Request $request)
+    {
+        $request->validate([
+            'type' => 'required|string',
+        ]);
+        $bantuan = new Bantuan([
+            'type' => $request->type,
+        ]);
+        $bantuan->save();
+        return response()->json([
+            'message' => 'Successfully created laporan bantuan!',
+            'success' => true,
+            'data' => $bantuan
+        ], 201);
+    }
 
     /**
      * Store a newly created resource in storage.
