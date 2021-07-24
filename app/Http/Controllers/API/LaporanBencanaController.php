@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\LaporanBencanaResource;
 use App\Models\LaporanBencana;
 use App\Models\Validation;
+use App\Models\Bencana;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,9 +31,15 @@ class LaporanBencanaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexBencana()
     {
-        //
+        $bencana = Bencana::all();
+
+        return response()->json([
+            'message' => 'Successfully display laporan bantuan data',
+            'data' => $bencana,
+            'success' => true
+        ]);
     }
 
     /**
@@ -57,7 +64,8 @@ class LaporanBencanaController extends Controller
         $laporan_bencana->save();
         return response()->json([
             'message' => 'Successfully created laporan bencana!',
-            'data' => $laporan_bencana
+            'data' => $laporan_bencana,
+            'success'=> true
         ], 201);
     }
 

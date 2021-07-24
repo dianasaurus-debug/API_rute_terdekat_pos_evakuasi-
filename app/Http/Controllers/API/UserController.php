@@ -79,9 +79,8 @@ class UserController extends Controller
         config(['auth.guards.api.provider' => 'user']);
         $user = User::select('users.*')->find(auth()->guard('user')->user()->id);
         $tokenResult = $user->createToken('si_tanggap_darurat',['user']);
+
         $token = $tokenResult->token;
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
         $token->save();
         return response()->json([
             'success' => true,

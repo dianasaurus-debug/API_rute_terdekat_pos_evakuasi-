@@ -8,6 +8,7 @@ use App\Models\LaporanBantuan;
 use App\Models\Validation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Bantuan;
 
 class LaporanBantuanController extends Controller
 {
@@ -21,6 +22,7 @@ class LaporanBantuanController extends Controller
         $laporan_bantuan = LaporanBantuan::orderBy('tanggal')->with('user', 'bantuan')->get();
 
         return response()->json([
+            'success' => true,
             'message' => 'Successfully display laporan bantuan data',
             'data' => LaporanBantuanResource::collection($laporan_bantuan)
         ]);
@@ -31,9 +33,16 @@ class LaporanBantuanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexBantuan()
     {
-        //
+        $bantuan = Bantuan::all();
+
+        return response()->json([
+            'message' => 'Successfully display laporan bantuan data',
+            'data' => $bantuan,
+            'success' => true,
+
+        ]);
     }
 
     /**
