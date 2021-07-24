@@ -112,7 +112,6 @@ class LaporanBencanaController extends Controller
             'data' => $laporan_bencana
         ]);
     }
-
     /**
      * Remove the specified resource from storage.
      *
