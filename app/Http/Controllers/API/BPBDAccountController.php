@@ -79,8 +79,7 @@ class BPBDAccountController extends Controller
         $user = Bpbd::select('bpbd.*')->find(auth()->guard('bpbd')->user()->id);
         $tokenResult = $user->createToken('si_tanggap_darurat',['bpbd']);
         $token = $tokenResult->token;
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
+
         $token->save();
         return response()->json([
             'success' => true,

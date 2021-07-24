@@ -20,7 +20,7 @@ class LaporanBantuanResource extends JsonResource
             'pelapor' => $this->user->name,
             'deskripsi' => $this->deskripsi,
             'bantuan' => $this->bantuan->type,
-            'status' => $this->bantuan->status,
+            'status' => $this->status,
             'nomor_hp' => $this->user->phone,
             'tanggal' => Carbon::parse($this->tanggal)->isoFormat('D MMMM Y'),
         ];

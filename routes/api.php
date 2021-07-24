@@ -51,4 +51,6 @@ Route::get('riwayat-bencana', [RiwayatBencanaController::class, 'index']);
 Route::get('posko-evakuasi', [PosEvakuasiController::class, 'index']);
 Route::get('laporan-bencana', [LaporanBencanaController::class, 'index']);
 Route::get('laporan-bantuan', [LaporanBantuanController::class, 'index']);
-
+Route::get('bencana', [LaporanBencanaController::class, 'indexBencana']);
+Route::get('bantuan', [LaporanBantuanController::class, 'indexBantuan']);
+Route::post('posko-evakuasi/terdekat', [PosEvakuasiController::class, 'nearPosko']);
