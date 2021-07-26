@@ -18,8 +18,8 @@ class PoskoEvakuasiResource extends JsonResource
             'id' => $this->id,
             'nama_posko' => $this->nama,
             'alamat' => $this->alamat,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude
+            'latitude' => (double) $this->latitude,
+            'longitude' => (double) $this->longitude
         ];
     }
 }
