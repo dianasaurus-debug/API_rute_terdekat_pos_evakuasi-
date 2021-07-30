@@ -55,3 +55,4 @@ Route::get('bencana', [LaporanBencanaController::class, 'indexBencana']);
 Route::get('bantuan', [LaporanBantuanController::class, 'indexBantuan']);
 Route::post('posko-evakuasi/terdekat', [PosEvakuasiController::class, 'nearPosko']);
 Route::post('bantuan', [LaporanBantuanController::class, 'makeBantuan']);
+Route::get('bencana-baru', [RiwayatBencanaController::class, 'bencana_baru']);
