@@ -67,7 +67,7 @@ class RiwayatController extends Controller
             "to" => $topic,
             "notification" => [
                 "title" => 'Awas! Ada ' .$bencana->nama,
-                "body" => 'Terjadi '.$bencana->nama.' di '.$desa->nama.' pada hari ini',
+                "body" => 'Terjadi '.$bencana->nama.' di desa '.$desa->nama.' pada hari ini',
             ],
             "data" => [
                 "msgId" => "msg_12342"
